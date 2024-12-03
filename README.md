@@ -8,7 +8,7 @@ https://www.ibm.com/docs/en/license-metric-tool?topic=certificate-step-2-signing
 
 
 ```
-#!/bin/bash
+
 echo 'generate private key to become a local CA'
 openssl genrsa -des3 -out myCA.key 2048
 
