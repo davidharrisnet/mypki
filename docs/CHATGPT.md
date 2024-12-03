@@ -29,4 +29,18 @@
 
 After executing these commands, you will have a CA certificate (`ca.crt`), a CA private key (`ca.key`), a user private key (`user.key`), a user CSR (`user.csr`), and a user certificate (`user.crt`).
 
+To extract the public key from a user's private key or certificate, you can use the following OpenSSL command:
+
+1. **Extract the Public Key from the User's Private Key:**
+   ```bash
+   openssl rsa -in user.key -pubout -out user_pub.key
+   ```
+
+2. **Alternatively, Extract the Public Key from the User's Certificate:**
+   ```bash
+   openssl x509 -in user.crt -pubkey -noout -out user_pub.key
+   ```
+
+### After executing either of these commands, the public key will be saved in the file `user_pub.key`.
+
 
