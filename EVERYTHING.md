@@ -22,3 +22,8 @@ openssl x509 -req -days 365 -in user.csr -CA new_ca.crt -CAkey new_ca.key -CAcre
 ```
 openssl x509 -in user.crt -noout -text
 ```
+### Generate a RSA private key with chmod 640
+```
+openssl genrsa -out private.key 2048
+chmod 640 private.key
+```
