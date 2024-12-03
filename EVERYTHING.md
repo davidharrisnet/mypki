@@ -10,6 +10,10 @@ openssl req -new -x509 -days 3650 -key new_ca.key -out new_ca.crt
 ```
 openssl genrsa -out user.key 2048
 ```
+### Optionally chmod 
+```
+chmod 640 user.key
+```
 ## Create a Certificate Signing Request (CSR) for the new user:
 ```
 openssl req -new -key user.key -out user.csr
@@ -22,8 +26,18 @@ openssl x509 -req -days 365 -in user.csr -CA new_ca.crt -CAkey new_ca.key -CAcre
 ```
 openssl x509 -in user.crt -noout -text
 ```
-### Generate a RSA private key with chmod 640
+
+# More Commands
+
+## Convert the PEM file to CRT format
 ```
-openssl genrsa -out private.key 2048
-chmod 640 private.key
+openssl x509 -in chain.pem -out chain.crt
 ```
+## Check the contents to verify that the conversion was successful
+```
+openssl x509 -in chain.crt -text -noout
+```
+
+
+
+
