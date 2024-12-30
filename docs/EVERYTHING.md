@@ -38,6 +38,9 @@ openssl x509 -in chain.pem -out chain.crt
 openssl x509 -in chain.crt -text -noout
 ```
 
-
+## Show certificate CN
+```
+openssl x509 -noout -subject -in chain.pem
+```
 
 
